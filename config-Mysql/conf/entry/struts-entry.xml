@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="entry" extends="fmzc-default" namespace="/">
+	
+		<!-- CommonAction -->
+		<action name="sendMobileVerifyCode" class="com.api.action.CommonAction" method="sendMobileVerifyCode" />
+		<action name="searchAccoutCodeInfo" class="com.api.action.CommonAction" method="searchAccoutCodeInfo" />
+		<!-- CommonAction end -->
+	
+		<!-- MemberAction -->
+		<action name="regist" class="com.api.action.MemberAction" method="regist" /> 
+		<action name="login" class="com.api.action.MemberAction" method="login" /> 
+		<action name="forgetLoginPassword" class="com.api.action.MemberAction" method="forgetLoginPassword" />
+		<action name="setPayPassword" class="com.api.action.MemberAction" method="setPayPassword" />
+		<action name="setHandPassword" class="com.api.action.MemberAction" method="setHandPassword" />
+		<action name="changeLoginPassword" class="com.api.action.MemberAction" method="changeLoginPassword" /> 
+		<action name="changePayPassword" class="com.api.action.MemberAction" method="changePayPassword" />
+		<action name="getUserAgreement" class="com.api.action.MemberAction" method="getUserAgreement" /> 
+		<!-- MemberAction end-->
+		
+		<!-- MemberInfoAction -->
+		<action name="searchMemberInfo" class="com.api.action.MemberInfoAction" method="searchMemberInfo" /> 
+		<action name="searchMemberBalance" class="com.api.action.MemberInfoAction" method="searchMemberBalance" /> 
+		<action name="memberSign" class="com.api.action.MemberInfoAction" method="memberSign" /> 
+		<action name="initProduct" class="com.api.action.MemberInfoAction" method="initProduct" /> 
+		<action name="searchRedeemInfo" class="com.api.action.MemberInfoAction" method="searchRedeemInfo" /> 
+		<action name="confirmRedeem" class="com.api.action.MemberInfoAction" method="confirmRedeem" /> 
+		<action name="recharge" class="com.api.action.MemberInfoAction" method="recharge" /> 
+		<action name="withdraw" class="com.api.action.MemberInfoAction" method="withdraw" /> 
+		<action name="searchMonrRecord" class="com.api.action.MemberInfoAction" method="searchMonrRecord" /> 
+		<action name="editMemberInfo" class="com.api.action.MemberInfoAction" method="editMemberInfo" /> 
+		<action name="uploadMemberImg" class="com.api.action.MemberInfoAction" method="uploadMemberImg" /> 
+		<!-- MemberInfoAction end-->
+		
+		<!-- BankAccountAction -->
+		<action name="initBankAccount" class="com.api.action.BankAccountAction" method="initBankAccount" />	 
+		<action name="setDefaultBankAccount" class="com.api.action.BankAccountAction" method="setDefaultBankAccount" />
+		<action name="addBankAccount" class="com.api.action.BankAccountAction" method="addBankAccount" />
+		<action name="deleteBankAccount" class="com.api.action.BankAccountAction" method="deleteBankAccount" />	
+		<action name="changeBankAccount" class="com.api.action.BankAccountAction" method="changeBankAccount" />				
+		<!-- BankAccountAction end-->
+		
+		<!-- RecAddressAction -->
+		<action name="initRecAddress" class="com.api.action.RecAddressAction" method="initRecAddress" />	
+		<action name="addAddress" class="com.api.action.RecAddressAction" method="addAddress" />
+		<action name="setDefaultAddress" class="com.api.action.RecAddressAction" method="setDefaultAddress" />
+		<action name="deleteAddress" class="com.api.action.RecAddressAction" method="deleteAddress" />		
+		<!-- RecAddressAction end-->
+		
+		<!-- MyCreditAction -->
+		<action name="currentCredit" class="com.api.action.MyCreditAction" method="currentCredit" />
+		<action name="creditDtl" class="com.api.action.MyCreditAction" method="creditDtl" />
+		<action name="exchangeCommodity" class="com.api.action.MyCreditAction" method="exchangeCommodity" />
+		<action name="submitExchange" class="com.api.action.MyCreditAction" method="submitExchange" />
+		<!-- MyCreditAction -->
+		
+		<!-- PwdManageAction -->
+		<action name="pwdChange" class="com.api.action.PwdManageAction" method="pwdChange" />
+		<action name="pwdReset" class="com.api.action.PwdManageAction" method="pwdReset" />
+		<!-- PwdManageAction end-->
+		
+		<!-- AdminSettingAction start -->
+		<action name="continueToken" class="com.api.action.AdminSettingAction" method="continueToken" />
+		<action name="logout" class="com.api.action.AdminSettingAction" method="logout" />
+		<action name="createVerifyCode" class="com.api.action.AdminSettingAction" method="createVerifyCode" />
+		<action name="adminLogin" class="com.api.action.AdminSettingAction" method="adminLogin" />
+		<action name="getAuthFunList" class="com.api.action.AdminSettingAction" method="getAuthFunList" />
+		<action name="showAdmins" class="com.api.action.AdminSettingAction" method="showAdmins" />
+		<action name="insertAdmin" class="com.api.action.AdminSettingAction" method="insertAdmin" />
+		<action name="deleteAdmin" class="com.api.action.AdminSettingAction" method="deleteAdmin" />
+		<action name="updateAdmin" class="com.api.action.AdminSettingAction" method="updateAdmin" />
+		<action name="showAdminAuditList" class="com.api.action.AdminSettingAction" method="showAdminAuditList" />
+		<action name="getFuncList" class="com.api.action.AdminSettingAction" method="getFuncList" />
+		<action name="getUserFunAuthorize" class="com.api.action.AdminSettingAction" method="getUserFunAuthorize" />
+		<action name="getFuncListByUserId" class="com.api.action.AdminSettingAction" method="getFuncListByUserId" />
+		<action name="setAuthorityAdmin" class="com.api.action.AdminSettingAction" method="setAuthorityAdmin" />
+		<action name="getAuthorityAdmin" class="com.api.action.AdminSettingAction" method="getAuthorityAdmin" />
+		<!-- AdminSettingAction end -->
+		
+		<!-- SystemSetingAction -->
+		<action name="insertView" class="com.api.action.SystemSetingAction" method="insertView" />
+		<action name="searchCompanyInfo" class="com.api.action.SystemSetingAction" method="searchCompanyInfo" />
+		<!-- SystemSetingAction end -->
+		
+		<!-- CommutAction -->
+		<action name="commutList" class="com.api.action.CommutAction" method="commutList" /> 
+		<action name="commutDetail" class="com.api.action.CommutAction" method="commutDetail" /> 
+		<action name="commutComment" class="com.api.action.CommutAction" method="commutComment" /> 
+		<!-- CommutAction end -->
+		
+		<!-- IndexAction -->
+		<action name="initIndex" class="com.api.action.IndexAction" method="initIndex" />
+		<!-- IndexAction end -->
+		
+		<!-- ProductAction -->
+		<action name="productList" class="com.api.action.ProductAction" method="productList" />
+		<action name="productDetail" class="com.api.action.ProductAction" method="productDetail" />
+		<action name="productInvestList" class="com.api.action.ProductAction" method="productInvestList" />
+		<action name="productHisDtl" class="com.api.action.ProductAction" method="productHisDtl" />
+		<action name="productShare" class="com.api.action.ProductAction" method="productShare" />
+		<action name="confirmPayment" class="com.api.action.ProductAction" method="confirmPayment" />
+		<!-- ProductAction end --> 
+		
+		<!-- AdvertAction -->
+		<action name="searchAdvert" class="com.api.action.AdvertAction" method="searchAdvert" />
+		<action name="searchAdvertList" class="com.api.action.AdvertAction" method="searchAdvertList" />
+		<action name="searchAdvertDtl" class="com.api.action.AdvertAction" method="searchAdvertDtl" />
+		<action name="deleteAadvert" class="com.api.action.AdvertAction" method="deleteAadvert" />
+		<action name="insertAdvert" class="com.api.action.AdvertAction" method="insertAdvert" />
+		<!-- AdvertAction end -->
+		
+		<!-- NewsAction -->
+		<action name="createNews" class="com.api.action.NewsAction" method="createNews" />
+		
+		<!-- NewsAction end-->
+	</package>
+</struts>

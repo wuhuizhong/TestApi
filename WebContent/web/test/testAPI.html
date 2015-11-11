@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>測試頁面</title>
+</head>
+
+<script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+
+<body>
+	<table border="1">
+		<tr>
+			<td>Version:</td>
+			<td colspan="2">2015.10.24</td>
+		</tr>
+		<tr>
+			<td>token</td>
+			<td><input type="text" id="token" name="token" size="40"></td>
+			<td><input type="button" id="cancel" name="cancel" value="清空"
+				onclick="document.getElementById('token').value='';"></td>
+		</tr>
+	</table>
+	<table border="1">
+		<tr>
+			<td>NS01</td>
+			<td><input type="button" id="createNews"
+				name="createNews" value="创建消息"></td>
+			<td>
+				<table>
+					<tr>
+						<td>newsName</td>
+					</tr>
+					<tr>
+						<td>newsText</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td><input type="text" id="newsName" name="newsName"
+							value=""></td>
+					</tr>
+					<tr>
+						<td><input type="text" id="newsText" name="newsText"
+							value="">
+								
+							</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<span id='createNewsSpan'></span>
+			</td>
+		</tr>
+	</table>
+
+	<script>
+	
+	function funAccountTypeChangeM05(objAccountType){
+		if (objAccountType.value == "02"){
+			document.getElementById("expirationF1").style.display="";
+			document.getElementById("cvv2F1").style.display="";
+			document.getElementById("expiration").style.display="";
+			document.getElementById("cvv2").style.display="";
+		}
+		else{
+			document.getElementById("expirationF1").style.display="none";
+			document.getElementById("cvv2F1").style.display="none";
+			document.getElementById("expiration").style.display="none";
+			document.getElementById("cvv2").style.display="none";
+		}
+	}
+		
+		jQuery.support.cors = true;
+		var clientIP;
+		clientIP = "192.168.1.1";
+		var host = "http://" + location.host + "/testApi";
+				
+		function createReq() {
+			var params = new Object();
+			if ($("#token").val() != "") {
+				params.token = $("#token").val();
+			}
+			params.ip = clientIP;
+			return params;
+		}
+
+		function requestAPI(func, params) {
+			var resp;
+			var urlApi = host + "/" + func + ".action";
+			//var urlApi= func  + ".action";
+			alert(urlApi);
+			console.log(urlApi);
+			$.ajax({
+				type : "POST",
+				url : urlApi,
+				async : false,
+				cache : false,
+				dataType : 'json', //回傳JSON接收
+				contentType : 'application/json', //設定
+				data : JSON.stringify(params),
+				success : function(res) {//alert(res.token);
+					if (res.token != 'undefind' && res.token != null)
+						$("#token").val(res.token);
+					$('#' + func + 'Span').html(JSON.stringify(res));
+					resp = res;
+				},
+				error : function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError);
+				}
+			});
+			return resp;
+		}
+
+		function requestJSP(func, params) {
+			var resp;
+			var strUrl = host + "/" + func + ".action";
+			//alert(strUrl);
+			$.ajax({
+				type : "POST",
+				url : strUrl,
+				async : false,
+				cache : false,
+				dataType : 'text', //回傳JSON接收
+				contentType : 'application/json', //設定
+				data : JSON.stringify(params),
+				success : function(res) {
+					$("#token").val(res.token);
+					$('#' + func + 'Span').html(res);
+					resp = res;
+				},
+				error : function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError);
+					alert(xhr);
+					alert(ajaxOptions);
+				}
+			});
+			return resp;
+		}
+	</script>
+
+</body>
+</html>
